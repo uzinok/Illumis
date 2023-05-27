@@ -20,7 +20,7 @@ const notify = require('gulp-notify');
 const less = require('gulp-less');
 // const cleanCSS = require('gulp-clean-css');
 const autoprefixer = require('autoprefixer');
-// const gcmq = require('gulp-group-css-media-queries');
+const gcmq = require('gulp-group-css-media-queries');
 
 const postcss = require('gulp-postcss');
 const postLess = require('postcss-less');
@@ -28,10 +28,6 @@ const postImport = require('postcss-import');
 const postUrl = require('postcss-url');
 const postMediaMinMax = require('postcss-media-minmax');
 const csso = require('postcss-csso')
-
-// scripts
-const babel = require('gulp-babel');
-const minify = require('gulp-minify');
 
 // html
 const htmlmin = require('gulp-htmlmin');
@@ -44,11 +40,6 @@ const paths = {
 		src: 'src/styles/*.less',
 		watch: 'src/styles/**/*.less',
 		dest: 'dest/styles/'
-	},
-	scripts: {
-		src: 'src/scripts/**/*.js',
-		watch: 'src/scripts/**/*.js',
-		dest: 'dest/scripts/'
 	},
 	html: {
 		src: 'src/**/*.html',
@@ -119,6 +110,7 @@ function styles() {
 			errorHandler: onError
 		}))
 		.pipe(less())
+		.pipe(gcmq())
 		.pipe(postcss([
 			postMediaMinMax(),
 			csso(),
@@ -131,32 +123,6 @@ function styles() {
 		.pipe(dest(paths.styles.dest, {
 			sourcemaps: "."
 		}))
-		.pipe(browserSync.stream());
-}
-
-// scripts
-function scripts() {
-	return src(paths.scripts.src)
-		.pipe(plumber({
-			errorHandler: notify.onError(function(err) {
-				return {
-					title: 'Task scripts',
-					message: "Error: <%= error.message %>",
-					sound: true
-				}
-			})
-		}))
-		.pipe(babel({
-			presets: ['@babel/preset-env']
-		}))
-		.pipe(minify({
-			ext: {
-				src: '.js',
-				min: '.min.js'
-			},
-			exclude: ['tasks']
-		}))
-		.pipe(dest(paths.scripts.dest))
 		.pipe(browserSync.stream());
 }
 
@@ -175,7 +141,6 @@ function html() {
 // watch
 function watchFiles() {
 	watch(paths.styles.watch, styles)
-	watch(paths.scripts.watch, scripts)
 	watch(paths.html.watch, html)
 }
 
@@ -198,16 +163,14 @@ exports.copy = copy;
 exports.styles = styles;
 // watchFiles
 exports.watchFiles = watchFiles;
-// scripts
-exports.scripts = scripts;
 // html
 exports.html = html;
 // server
 exports.server = server;
 
-exports.build = series(clean, copy, parallel(styles, scripts, html))
+exports.build = series(clean, copy, parallel(styles, html))
 
-exports.default = series(clean, copy, parallel(scripts, styles, html), server);
+exports.default = series(clean, copy, parallel(styles, html), server);
 
 /**
  * Дополнительные задачи
