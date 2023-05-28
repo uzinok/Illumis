@@ -8,8 +8,6 @@ const {
 
 // clean
 const del = require('del');
-// rename
-const rename = require('gulp-rename');
 // browserSync
 const browserSync = require('browser-sync').create();
 // error
@@ -108,10 +106,6 @@ function styles() {
 		.pipe(postcss([
 			autoprefixer(),
 		]))
-		.pipe(rename({
-			basename: 'main',
-			suffix: '.min'
-		}))
 		.pipe(dest(paths.styles.dest, {
 			sourcemaps: "."
 		}))
