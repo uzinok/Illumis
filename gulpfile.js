@@ -26,12 +26,6 @@ const postcss = require('gulp-postcss');
 const postLess = require('postcss-less');
 const postImport = require('postcss-import');
 const postUrl = require('postcss-url');
-const postMediaMinMax = require('postcss-media-minmax');
-const csso = require('postcss-csso')
-
-// html
-const htmlmin = require('gulp-htmlmin');
-const nunjucks = require('gulp-nunjucks');
 
 const paths = {
 	dest: 'dest',
@@ -112,8 +106,6 @@ function styles() {
 		.pipe(less())
 		.pipe(gcmq())
 		.pipe(postcss([
-			postMediaMinMax(),
-			csso(),
 			autoprefixer(),
 		]))
 		.pipe(rename({
@@ -129,11 +121,6 @@ function styles() {
 // html
 function html() {
 	return src(paths.html.src)
-		.pipe(nunjucks.compile())
-		.pipe(htmlmin({
-			removeComments: false,
-			collapseWhitespace: true
-		}))
 		.pipe(dest(paths.html.dest))
 		.pipe(browserSync.stream());
 }
