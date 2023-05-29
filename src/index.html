@@ -104,6 +104,7 @@
 		<section>
 			<div class="inner container">
 				<p>В одном из выпусков на суд инвесторов пришла девушка, которая пыталась убедить бизнесменов вложиться в средство от ПМС. В своей презентации она рассказала не только о том, что боли, депрессивное настроение и повышенный аппетит приходят к 99 из 100 женщин во время предменструального синдрома, но и о том, что учёные годами пытались создать работающий препарат от ПМС. И ей, молодому специалисту, удалось разработать средство, которое помогает. Несколько инвесторов решили вложиться в проект, и совсем скоро выйдет выпуск Dragons’ Den What Happened Next с участием молодого учёного. <b>Ну а сейчас мы хотим рассказать вам, что это за средство, как оно работает и почему его производством заинтересовалась сразу несколько мультимиллионеров.</b></p>
+				<div id="web_aside" class="web_aside"></div>
 				<p>Стейси Джеймс — молодой специалист, которая не понаслышке знает о симптомах ПМС. Во время учёбы в медицинском университете она не раз принимала участие в научных конференциях. После одной из конференций она стала активно изучать натуральные ингредиенты, которые не нарушают гормональный фон, но снимают симптомы предменструального синдрома. И ей удалось выяснить необычный факт, и прямо сейчас она расскажет вам какой.</p>
 				<figure>
 					<img src="./img/img-1.jpg" alt="#" width="656" height="448" loading="lazy">
@@ -304,51 +305,42 @@
 				</div>
 			</div>
 		</section>
-		<section id="wap_aside">
+
+		<section>
 			<div class="container">
-				<div class="inner">
+				<div class="inner" id="wap_aside">
 					<div class="aside" id="aside">
 						<h2>Top Stories</h2>
 						<ul class="aside__list">
 
 							<li>
 								<img src="./img/aside-1.jpg" alt="#">
-								<div>
-									<a href="#">Medicinal cannabis helps cancer pain</a>
-									<span>4 days ago • 1089 comments</span>
-								</div>
+								<a href="#">Medicinal cannabis helps cancer pain</a>
+								<span>4 days ago • 1089 comments</span>
 							</li>
 
 							<li>
 								<img src="./img/aside-2.jpg" alt="#">
-								<div>
-									<a href="#">Vaping: high lead and nickel found in illegal vapes</a>
-									<span>2 days ago • 394 comments</span>
-								</div>
+								<a href="#">Vaping: high lead and nickel found in illegal vapes</a>
+								<span>2 days ago • 394 comments</span>
 							</li>
 
 							<li>
 								<img src="./img/aside-3.jpg" alt="#">
-								<div>
-									<a href="#">Magic CBG</a>
-									<span>6 days ago • 553 commentsents</span>
-								</div>
+								<a href="#">Magic CBG</a>
+								<span>6 days ago • 553 commentsents</span>
 							</li>
 
 							<li>
-								<img src="./img/aside-1.jpg" alt="#">
-								<div>
-									<a href="#">The Dutch solution to stress</a>
-									<span>5 hours ago • 77 comments</span>
-								</div>
+								<img src="./img/aside-4.jpg" alt="#">
+								<a href="#">The Dutch solution to stress</a>
+								<span>5 hours ago • 77 comments</span>
 							</li>
 
 							<li>
-								<img src="./img/aside-1.jpg" alt="#">
-								<div>
-									<a href="#">Medical effects of cannabis components</a>
-									<span>yesterday • 261 comments</span>
-								</div>
+								<img src="./img/aside-5.jpg" alt="#">
+								<a href="#">Medical effects of cannabis components</a>
+								<span>yesterday • 261 comments</span>
 							</li>
 
 						</ul>
@@ -393,6 +385,29 @@
 			</div>
 		</div>
 	</div>
+
+	<script>
+		const wapAside = document.querySelector('#wap_aside');
+		const webAside = document.querySelector('#web_aside');
+		const Aside = document.querySelector('#aside');
+		let check = 'web';
+
+		checkAside();
+
+		window.addEventListener('resize', checkAside);
+
+		function checkAside() {
+			if (window.innerWidth > 990 && check == 'web') {
+				webAside.append(aside);
+				check = 'wap';
+			}
+			if (window.innerWidth < 990 && check == 'wap') {
+				wapAside.append(aside);
+				check = 'web';
+			}
+		}
+
+	</script>
 </body>
 
 </html>
