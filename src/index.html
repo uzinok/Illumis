@@ -12,6 +12,18 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 	<link rel="stylesheet" href="styles/main.css">
+	<script>
+		function dtime(num) {
+			const date = new Date();
+
+			date.setDate(date.getDate() + num);
+			var options = {
+				month: 'long',
+				day: 'numeric',
+			};
+			document.write(date.toLocaleString("en-US", options));
+		}
+	</script>
 </head>
 
 <body>
@@ -172,7 +184,7 @@
 				<p>— Это, несомненно, радует. Спасибо большое за интервью, вашу работу и за то, что пытаетесь изменить мир к лучшему!</p>
 				<p>— Я всегда была за инновации и рада, что у меня получается двигаться в правильном направлении. Надеюсь, Illumis поможет каждой женщине и поэтому дарю скидку 50 % всем, кто успеет заказать продукт из второй партии.</p>
 				<figure>
-					<img src="./img/img-6.jpg" alt="#" width="656" height="688" loading="lazy">
+					<img src="./img/img-6.jpg" alt="#" width="656" height="448" loading="lazy">
 					<img src="./img/prod.png" alt="Illumis" class="prod" width="146" height="353" loading="lazy">
 					<figcaption class="p0">
 						<span>Illumis</span>
@@ -219,7 +231,10 @@
 							<div class="comments__item-header">
 								<div class="comments__ava">M</div>
 								<p class="comments__name">Mary Thompson</p>
-								<p class="comments__date">10:20 23 May</p>
+								<p class="comments__date">10:20 <script>
+										dtime(-2);
+									</script>
+								</p>
 							</div>
 							<p>Thanks, I’m gonna order it for myself.</p>
 							<div class="comments__likes">
@@ -232,7 +247,10 @@
 							<div class="comments__item-header">
 								<div class="comments__ava">M</div>
 								<p class="comments__name">Megan Wild</p>
-								<p class="comments__date">10:22 23 May</p>
+								<p class="comments__date">10:22 <script>
+										dtime(-2);
+									</script>
+								</p>
 							</div>
 							<p>I personally don't have any issues of this kind. Dunno, when they talk about pain and a bad mood, it seems to me that they are exaggerating.</p>
 							<div class="comments__likes">
@@ -245,7 +263,10 @@
 							<div class="comments__item-header">
 								<div class="comments__ava">M</div>
 								<p class="comments__name">Margo Kovalev</p>
-								<p class="comments__date">10:29 23 May</p>
+								<p class="comments__date">10:29 <script>
+										dtime(-2);
+									</script>
+								</p>
 							</div>
 							<p>You know, everyone's body is different. My pain was so terrible that I could hardly get out of bed for three days, and 10 days before my periods I simply turned into a ball of nerves, I was irritated by EVERYTHING. Fortunately, I found out about Illumis, otherwise I don’t know how much longer I would have suffered. This is the only product that whipped me into shape, both internally and externally.</p>
 							<div class="comments__likes">
@@ -258,7 +279,10 @@
 							<div class="comments__item-header">
 								<div class="comments__ava">R</div>
 								<p class="comments__name">Roxy Hunt</p>
-								<p class="comments__date">11:02 23 May</p>
+								<p class="comments__date">11:02 <script>
+										dtime(-2);
+									</script>
+								</p>
 							</div>
 							<p>I also suffered from PMS symptoms, I was twitchy and angry. None of the sedatives helped, nor did the painkillers. As soon as I tried Illumis, I went from being an evil witch to being a fairy.</p>
 							<div class="comments__likes">
@@ -271,7 +295,10 @@
 							<div class="comments__item-header">
 								<div class="comments__ava">H</div>
 								<p class="comments__name">Helen Jones</p>
-								<p class="comments__date">11:27 23 May</p>
+								<p class="comments__date">11:27 <script>
+										dtime(-2);
+									</script>
+								</p>
 							</div>
 							<p>I’ve been experiencing torture every month since the age of 12... and my periods last 7 days. And 10 days BEFORE I feel I’m not myself anymore… I checked with gynecologists, there are no deviations, they say…  my body just works like that! It’s just terrible. I'm going to try this, hope it helps…</p>
 							<div class="comments__likes">
@@ -284,7 +311,10 @@
 							<div class="comments__item-header">
 								<div class="comments__ava">H</div>
 								<p class="comments__name">Heather Beri</p>
-								<p class="comments__date">09:59 24 May</p>
+								<p class="comments__date">09:59 <script>
+										dtime(-1);
+									</script>
+								</p>
 							</div>
 							<p>I can relate! Periods are the worst thing that ever happened in my life! But with Illumis, I forgot about this nightmare! And most importantly, I am delighted with the composition! A very effective remedy, all-natural and does not harm the internal organs and the nervous system.</p>
 							<div class="comments__likes">
@@ -314,31 +344,31 @@
 						<ul class="aside__list">
 
 							<li>
-								<img src="./img/aside-1.jpg" alt="#" loading="lazy">
+								<img src="./img/aside-1.jpg" alt="#" loading="lazy" width="240" height="144">
 								<a href="#">Medicinal cannabis helps cancer pain</a>
 								<span>4 days ago • 1089 comments</span>
 							</li>
 
 							<li>
-								<img src="./img/aside-2.jpg" alt="#" loading="lazy">
+								<img src="./img/aside-2.jpg" alt="#" loading="lazy" width="240" height="153">
 								<a href="#">Vaping: high lead and nickel found in illegal vapes</a>
 								<span>2 days ago • 394 comments</span>
 							</li>
 
 							<li>
-								<img src="./img/aside-3.jpg" alt="#" loading="lazy">
+								<img src="./img/aside-3.jpg" alt="#" loading="lazy" width="240" height="153">
 								<a href="#">Magic CBG</a>
 								<span>6 days ago • 553 commentsents</span>
 							</li>
 
 							<li>
-								<img src="./img/aside-4.jpg" alt="#" loading="lazy">
+								<img src="./img/aside-4.jpg" alt="#" loading="lazy" width="240" height="153">
 								<a href="#">The Dutch solution to stress</a>
 								<span>5 hours ago • 77 comments</span>
 							</li>
 
 							<li>
-								<img src="./img/aside-5.jpg" alt="#" loading="lazy">
+								<img src="./img/aside-5.jpg" alt="#" loading="lazy" width="240" height="153">
 								<a href="#">Medical effects of cannabis components</a>
 								<span>yesterday • 261 comments</span>
 							</li>
@@ -381,7 +411,7 @@
 				</ul>
 			</div>
 			<div class="inner">
-				<p>© 2023 BBC. The BBC is not responsible for the content of external sites. <a href="#">Read about our approach to external linking.</a></p>
+				<p>© <script>document.write((new Date).getFullYear());</script> BBC. The BBC is not responsible for the content of external sites. <a href="#">Read about our approach to external linking.</a></p>
 			</div>
 		</div>
 	</div>
@@ -406,8 +436,8 @@
 				check = 'web';
 			}
 		}
-
 	</script>
+
 </body>
 
 </html>
